@@ -87,7 +87,7 @@ namespace Voxon
 	}
 }
 
-namespace Voxon2
+namespace Voxon.Extended
 {
 	using Voxon;
 	/*
