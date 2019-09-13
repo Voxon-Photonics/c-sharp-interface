@@ -91,6 +91,12 @@ namespace Voxon
 		void LogToFile(string msg);
 		void LogToScreen(int x, int y, string Text);
 		#endregion
+
+		#region versioning
+		long GetDLLVersion();
+
+		string GetSDKVersion();
+		#endregion
 	}
 }
 
