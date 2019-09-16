@@ -76,7 +76,7 @@ namespace Voxon
 	{
 		public IntPtr first_pixel;          // pointer to first pixel of the texture (usually the top-left corner)
 		public IntPtr pitch;                   // pitch, or number of bytes per horizontal line (usually x*4)
-		public IntPtr height, width;          // width & height of texture
+		public IntPtr width, height;          // width & height of texture
 	}
 	#endregion
 }
