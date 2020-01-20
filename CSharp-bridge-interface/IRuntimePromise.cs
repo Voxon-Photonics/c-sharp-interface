@@ -98,6 +98,22 @@ namespace Voxon
 		string GetSDKVersion();
 		#endregion
 	}
+
+	// Experiment (Will an additional Interface break an existing one)
+	public interface IHelixPromise : Voxon.IRuntimePromise
+	{
+		#region mode
+		bool GetHelixMode();
+		void SetHelixMode(bool active);
+		#endregion
+
+		#region radius_variables
+		void SetExternalRadius(float radius);
+		float GetExternalRadius();
+		void SetInternalRadius(float radius);
+		float GetInternalRadius();
+		#endregion
+	}
 }
 
 namespace Voxon.Extended
