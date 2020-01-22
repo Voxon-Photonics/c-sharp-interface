@@ -51,6 +51,7 @@ namespace Voxon
 		void DrawLine(ref point3d min, ref point3d max, int col);
 		void DrawPolygon(pol_t[] pt, int pt_count, Int32 col);
 		void DrawHeightmap(ref tiletype texture, ref point3d pp, ref point3d pr, ref point3d pd, ref point3d pf, Int32 colorkey, int min_height, int flags);
+		void DrawVoxels(ref point3d[] positions, ref int[] colours, int voxel_count);
 		#endregion
 
 		#region input_calls
@@ -94,7 +95,6 @@ namespace Voxon
 
 		#region versioning
 		long GetDLLVersion();
-
 		string GetSDKVersion();
 		#endregion
 	}
@@ -104,7 +104,7 @@ namespace Voxon
 	{
 		#region mode
 		bool GetHelixMode();
-		void SetHelixMode(bool active);
+		void SetSimulatorHelixMode(bool helix);
 		#endregion
 
 		#region radius_variables
