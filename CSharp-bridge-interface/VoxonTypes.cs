@@ -3,6 +3,8 @@ using System.Runtime.InteropServices;
 
 namespace Voxon
 {
+	public delegate int MenuUpdateHandler(int id, string st, double v, int how, object userdata);
+
 	#region public_structures
 	[Serializable]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -78,5 +80,9 @@ namespace Voxon
 		public IntPtr pitch;                   // pitch, or number of bytes per horizontal line (usually x*4)
 		public IntPtr width, height;          // width & height of texture
 	}
+	#endregion
+
+	#region public_enums
+	public enum MENU_TYPE { MENU_TEXT = 0, MENU_LINE, MENU_BUTTON, MENU_HSLIDER = MENU_BUTTON + 4, MENU_VSLIDER, MENU_EDIT, MENU_EDIT_DO };
 	#endregion
 }

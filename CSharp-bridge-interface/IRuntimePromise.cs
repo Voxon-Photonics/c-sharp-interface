@@ -34,9 +34,16 @@ namespace Voxon
 		void FrameEnd();
 		#endregion
 
+		#region emulator_controls
+		#endregion
+
 		#region camera_control
 		void SetAspectRatio(float aspx, float aspy, float aspz);
 		float[] GetAspectRatio();
+
+		void SetColorMode(int colour);
+		int GetColorMode();
+
 		#endregion
 
 		#region draw_calls
@@ -47,11 +54,12 @@ namespace Voxon
 		void DrawUntexturedMesh(poltex[] vertices, int vertice_count, int[] indices, int indice_count, int flags, int colour);
 		void DrawSphere(ref point3d position, float radius, int issol, int colour);
 		void DrawVoxel(ref point3d position, int col);
+		void DrawVoxelBatch(ref poltex[] positions, int voxel_count, int colour);
+		void DrawVoxels(ref point3d[] positions, int voxel_count, ref int[] colours);
 		void DrawCube(ref point3d pp, ref point3d pr, ref point3d pd, ref point3d pf, int flags, Int32 col);
 		void DrawLine(ref point3d min, ref point3d max, int col);
 		void DrawPolygon(pol_t[] pt, int pt_count, Int32 col);
 		void DrawHeightmap(ref tiletype texture, ref point3d pp, ref point3d pr, ref point3d pd, ref point3d pf, Int32 colorkey, int min_height, int flags);
-		void DrawVoxels(ref point3d[] positions, ref int[] colours, int voxel_count);
 		#endregion
 
 		#region input_calls
@@ -97,11 +105,8 @@ namespace Voxon
 		long GetDLLVersion();
 		string GetSDKVersion();
 		#endregion
-	}
 
-	// Experiment (Will an additional Interface break an existing one)
-	public interface IHelixPromise : Voxon.IRuntimePromise
-	{
+		#region Helix
 		#region mode
 		bool GetHelixMode();
 		void SetSimulatorHelixMode(bool helix);
@@ -113,12 +118,40 @@ namespace Voxon
 		void SetInternalRadius(float radius);
 		float GetInternalRadius();
 		#endregion
+		#endregion
+
+		#region Menu
+		void MenuReset(MenuUpdateHandler menuUpdate, object userdata);
+		void MenuAddTab(string text, int x, int y, int width, int height);
+
+		void MenuAddText(int id, string text, int x, int y, int width, int height, int colour);
+
+		void MenuAddButton(int id, string text, int x, int y, int width, int height, int colour, int position);
+
+		void MenuAddVerticleSlider(int id, string text, int x, int y, int width, int height, int colour,
+			int initial_value, double min, double max, double minor_step, double major_step);
+
+		void MenuAddHorizontalSlider(int id, string text, int x, int y, int width, int height, int colour,
+			int initial_value, double min, double max, double minor_step, double major_step);
+
+		void MenuAddEdit(int id, string text, int x, int y, int width, int height, int colour, bool hasFollowupButton = false);
+
+		void MenuUpdateItem(int id, string st, int down, double v);
+		#endregion
+
+	}
+
+	// Use for Variations of Runtime (In case of device specific code)
+	public interface IExtensionName : Voxon.IRuntimePromise
+	{
+		void NOT_YET_IMPLEMENTED();
 	}
 }
 
+// Choose appropriate Namespace when rolling out major expansion
 namespace Voxon.Extended
 {
-    // Use to Extend Base Voxon Runtime
+    // Use to Extend Base Voxon Runtime (Use for major Expansion)
     public interface IRuntimePromise : Voxon.IRuntimePromise {
         void NOT_YET_IMPLEMENTED();
     };
