@@ -35,6 +35,12 @@ namespace Voxon
 		#endregion
 
 		#region emulator_controls
+		float GetEmulatorHorizontalAngle();
+		float GetEmulatorVerticalAngle();
+		float GetEmulatorDistance();
+		float SetEmulatorHorizontalAngle(float radians);
+		float SetEmulatorVerticalAngle(float radians);
+		float SetEmulatorDistance(float distance);
 		#endregion
 
 		#region camera_control
@@ -54,7 +60,7 @@ namespace Voxon
 		void DrawUntexturedMesh(poltex[] vertices, int vertice_count, int[] indices, int indice_count, int flags, int colour);
 		void DrawSphere(ref point3d position, float radius, int issol, int colour);
 		void DrawVoxel(ref point3d position, int col);
-		void DrawVoxelBatch(ref poltex[] positions, int voxel_count, int colour);
+		void DrawVoxelBatch(ref point3d[] positions, int voxel_count, int colour);
 		void DrawVoxels(ref point3d[] positions, int voxel_count, ref int[] colours);
 		void DrawCube(ref point3d pp, ref point3d pr, ref point3d pd, ref point3d pf, int flags, Int32 col);
 		void DrawLine(ref point3d min, ref point3d max, int col);
