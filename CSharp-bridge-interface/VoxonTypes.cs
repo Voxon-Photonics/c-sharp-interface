@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Voxon
 {
-	public delegate int MenuUpdateHandler(int id, string st, double v, int how, object userdata);
+	public delegate int MenuUpdateHandler(int id, string st, double v, int how, IntPtr userdata);
 
 	#region public_structures
 	[Serializable]

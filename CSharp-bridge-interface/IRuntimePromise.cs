@@ -127,7 +127,7 @@ namespace Voxon
 		#endregion
 
 		#region Menu
-		void MenuReset(MenuUpdateHandler menuUpdate, object userdata);
+		void MenuReset(MenuUpdateHandler menuUpdate, IntPtr userdata);
 		void MenuAddTab(string text, int x, int y, int width, int height);
 
 		void MenuAddText(int id, string text, int x, int y, int width, int height, int colour);
@@ -135,10 +135,10 @@ namespace Voxon
 		void MenuAddButton(int id, string text, int x, int y, int width, int height, int colour, int position);
 
 		void MenuAddVerticleSlider(int id, string text, int x, int y, int width, int height, int colour,
-			int initial_value, double min, double max, double minor_step, double major_step);
+			double initial_value, double min, double max, double minor_step, double major_step);
 
 		void MenuAddHorizontalSlider(int id, string text, int x, int y, int width, int height, int colour,
-			int initial_value, double min, double max, double minor_step, double major_step);
+			double initial_value, double min, double max, double minor_step, double major_step);
 
 		void MenuAddEdit(int id, string text, int x, int y, int width, int height, int colour, bool hasFollowupButton = false);
 
