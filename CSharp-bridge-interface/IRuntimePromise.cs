@@ -145,6 +145,15 @@ namespace Voxon
 		void MenuUpdateItem(int id, string st, int down, double v);
 		#endregion
 
+		#region Lighting
+		void DrawLitTexturedMesh(ref tiletype texture, poltex[] vertices, int vertice_count, int[] indices, int indice_count, int flags, int ambient_col);
+		#endregion
+
+		#region recording
+		void StartRecording(string filename, int fps);
+		void EndRecording();
+		void GetVCB(string filename, int fps);
+		#endregion
 	}
 
 	// Use for Variations of Runtime (In case of device specific code)
