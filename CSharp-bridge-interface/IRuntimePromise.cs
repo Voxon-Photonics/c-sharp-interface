@@ -50,6 +50,14 @@ namespace Voxon
 		void SetColorMode(int colour);
 		int GetColorMode();
 
+		void SetDotSize(int dotSize);
+		int GetDotSize();
+
+		void SetGamma(float gamma);
+		float GetGamma();
+
+		void SetDensity(float density);
+		float GetDensity();
 		#endregion
 
 		#region draw_calls
@@ -147,6 +155,9 @@ namespace Voxon
 
 		#region Lighting
 		void DrawLitTexturedMesh(ref tiletype texture, poltex[] vertices, int vertice_count, int[] indices, int indice_count, int flags, int ambient_col);
+
+		void DisableNormalLighting();
+		void SetNormalLighting(float aspx, float aspy, float aspz);
 		#endregion
 
 		#region recording
